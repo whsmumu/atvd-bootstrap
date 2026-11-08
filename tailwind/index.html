@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cursos Online — Tailwind CSS</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.0"></script>
+  <script src="script.js" defer></script>
+</head>
+<body class="text-slate-900">
+  <a class="sr-only focus:not-sr-only" href="#conteudo">Pular para o conteúdo</a>
+  <header class="bg-slate-900 text-white">
+    <nav class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-5" aria-label="Navegação principal">
+      <a class="text-xl font-bold" href="#inicio">Cursos Online</a>
+      <button id="menu-botao" class="rounded border border-slate-400 px-3 py-2 lg:hidden" type="button" aria-controls="menu" aria-expanded="false" aria-label="Alternar menu"><span aria-hidden="true">☰</span></button>
+      <ul id="menu" class="hidden w-full flex-col gap-4 lg:flex lg:w-auto lg:flex-row">
+        <li><a class="block rounded hover:underline" href="#inicio">Início</a></li>
+        <li><a class="block rounded hover:underline" href="#cursos">Cursos</a></li>
+        <li><a class="block rounded hover:underline" href="#turmas">Turmas</a></li>
+        <li><a class="block rounded hover:underline" href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="conteudo" class="mx-auto max-w-6xl space-y-12 px-4 py-12">
+    <section id="inicio" aria-labelledby="titulo">
+      <p class="mb-2 font-bold text-blue-700">APRENDA A CRIAR PARA A WEB</p>
+      <h1 id="titulo" class="text-4xl font-bold md:text-5xl">Cursos Online</h1>
+      <p class="mt-4 text-xl text-slate-600">Conheça nossos cursos e encontre sua próxima turma.</p>
+      <a class="mt-4 inline-block text-blue-700 underline" href="../">Ver versão Bootstrap</a>
+      <div id="destaques" class="relative mt-6 overflow-hidden rounded-lg bg-blue-700 text-white" role="region" aria-roledescription="carrossel" aria-label="Destaques dos cursos">
+        <div class="grid">
+          <div class="col-start-1 row-start-1 px-14 pt-10 pb-16 text-center opacity-100 transition-opacity duration-500 motion-reduce:transition-none" data-slide role="group" aria-label="1 de 3" aria-hidden="false">
+            <p class="mb-2">Destaque 01</p><h2 class="text-2xl font-semibold">Aprenda HTML e CSS</h2><p class="mt-3">Comece pelos fundamentos da criação de páginas web.</p>
+          </div>
+          <div class="col-start-1 row-start-1 px-14 pt-10 pb-16 text-center opacity-0 transition-opacity duration-500 motion-reduce:transition-none" data-slide role="group" aria-label="2 de 3" aria-hidden="true" inert>
+            <p class="mb-2">Destaque 02</p><h2 class="text-2xl font-semibold">Crie páginas com Bootstrap</h2><p class="mt-3">Organize interfaces usando componentes responsivos.</p>
+          </div>
+          <div class="col-start-1 row-start-1 px-14 pt-10 pb-16 text-center opacity-0 transition-opacity duration-500 motion-reduce:transition-none" data-slide role="group" aria-label="3 de 3" aria-hidden="true" inert>
+            <p class="mb-2">Destaque 03</p><h2 class="text-2xl font-semibold">Conheça Tailwind CSS</h2><p class="mt-3">Estilize suas páginas combinando classes utilitárias.</p>
+          </div>
+        </div>
+        <button id="anterior" class="absolute inset-y-0 left-0 w-12 text-3xl hover:bg-black/10 focus-visible:outline-2 focus-visible:-outline-offset-4" type="button" aria-label="Slide anterior"><span aria-hidden="true">‹</span></button>
+        <button id="proximo" class="absolute inset-y-0 right-0 w-12 text-3xl hover:bg-black/10 focus-visible:outline-2 focus-visible:-outline-offset-4" type="button" aria-label="Próximo slide"><span aria-hidden="true">›</span></button>
+        <div class="absolute inset-x-0 bottom-3 flex justify-center gap-1">
+          <button class="rounded p-3" type="button" data-indicador="0" aria-current="true" aria-label="Destaque 1"><span class="block h-2 w-6 rounded bg-white" aria-hidden="true"></span></button>
+          <button class="rounded p-3" type="button" data-indicador="1" aria-label="Destaque 2"><span class="block h-2 w-6 rounded bg-white/40" aria-hidden="true"></span></button>
+          <button class="rounded p-3" type="button" data-indicador="2" aria-label="Destaque 3"><span class="block h-2 w-6 rounded bg-white/40" aria-hidden="true"></span></button>
+        </div>
+      </div>
+    </section>
+    <section id="cursos" aria-labelledby="titulo-cursos">
+      <h2 id="titulo-cursos" class="mb-6 text-2xl font-semibold">Nossos cursos</h2>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="rounded-lg border border-slate-300 p-6"><h3 class="mb-3 text-xl font-semibold">HTML e CSS</h3><p class="text-slate-600">Aprenda a estruturar conteúdos e criar o visual das suas primeiras páginas.</p></article>
+        <article class="rounded-lg border border-slate-300 p-6"><h3 class="mb-3 text-xl font-semibold">Bootstrap</h3><p class="text-slate-600">Crie interfaces responsivas com um grid e componentes prontos para usar.</p></article>
+        <article class="rounded-lg border border-slate-300 p-6"><h3 class="mb-3 text-xl font-semibold">Tailwind CSS</h3><p class="text-slate-600">Combine classes utilitárias para definir cores, espaçamento e layouts.</p></article>
+      </div>
+    </section>
+    <section id="turmas" aria-labelledby="titulo-turmas">
+      <h2 id="titulo-turmas" class="mb-6 text-2xl font-semibold">Próximas turmas</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left whitespace-nowrap">
+          <caption class="caption-bottom py-3 text-left text-slate-600">Turmas fictícias disponíveis para demonstração.</caption>
+          <thead class="bg-slate-900 text-white"><tr><th class="p-3" scope="col">Curso</th><th class="p-3" scope="col">Turma</th><th class="p-3" scope="col">Turno</th><th class="p-3" scope="col">Vagas</th></tr></thead>
+          <tbody>
+            <tr class="odd:bg-slate-100"><td class="p-3">HTML e CSS</td><td class="p-3">WEB-01</td><td class="p-3">Manhã</td><td class="p-3">20</td></tr>
+            <tr class="odd:bg-slate-100"><td class="p-3">HTML e CSS</td><td class="p-3">WEB-02</td><td class="p-3">Noite</td><td class="p-3">15</td></tr>
+            <tr class="odd:bg-slate-100"><td class="p-3">Bootstrap</td><td class="p-3">BOOT-01</td><td class="p-3">Tarde</td><td class="p-3">18</td></tr>
+            <tr class="odd:bg-slate-100"><td class="p-3">Bootstrap</td><td class="p-3">BOOT-02</td><td class="p-3">Noite</td><td class="p-3">12</td></tr>
+            <tr class="odd:bg-slate-100"><td class="p-3">Tailwind CSS</td><td class="p-3">TAIL-01</td><td class="p-3">Manhã</td><td class="p-3">16</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section id="contato" aria-labelledby="titulo-contato">
+      <h2 id="titulo-contato" class="text-2xl font-semibold">Tenho interesse</h2>
+      <p class="mt-3 mb-6 text-slate-600">Formulário demonstrativo. Nenhum dado será enviado ou armazenado.</p>
+      <form id="interesse" class="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div><label class="mb-2 block" for="nome">Nome</label><input id="nome" name="nome" class="w-full rounded border border-slate-400 p-3 focus:outline-2 focus:outline-blue-700" type="text" autocomplete="name" required></div>
+        <div><label class="mb-2 block" for="email">E-mail</label><input id="email" name="email" class="w-full rounded border border-slate-400 p-3 focus:outline-2 focus:outline-blue-700" type="email" autocomplete="email" required></div>
+        <div class="md:col-span-2"><label class="mb-2 block" for="curso">Curso de interesse</label><select id="curso" name="curso" class="w-full rounded border border-slate-400 bg-white p-3 focus:outline-2 focus:outline-blue-700" required><option value="">Selecione um curso</option><option>HTML e CSS</option><option>Bootstrap</option><option>Tailwind CSS</option></select></div>
+        <div class="md:col-span-2"><label class="mb-2 block" for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" class="w-full rounded border border-slate-400 p-3 focus:outline-2 focus:outline-blue-700" rows="4" required></textarea></div>
+        <div class="md:col-span-2"><button class="rounded bg-blue-700 px-5 py-3 text-white hover:bg-blue-800" type="submit">Enviar interesse</button></div>
+      </form>
+      <p id="resultado" class="mt-4 font-semibold" role="status"></p>
+    </section>
+    <button id="abrir-modal" class="rounded border border-blue-700 px-5 py-3 text-blue-700 hover:bg-blue-50" type="button">Sobre os cursos</button>
+    <dialog id="sobre" class="fixed m-auto w-[calc(100%-2rem)] max-w-lg rounded-lg border-0 p-6 text-slate-900 backdrop:bg-black/50" aria-labelledby="titulo-modal" aria-describedby="descricao-modal">
+      <h2 id="titulo-modal" class="mb-4 text-xl font-semibold">Sobre os cursos</h2>
+      <p id="descricao-modal">Os cursos e as turmas são fictícios e foram criados para demonstrar os componentes desta atividade.</p>
+      <form method="dialog" class="mt-6 text-right"><button id="fechar-modal" class="rounded bg-blue-700 px-5 py-3 text-white hover:bg-blue-800" autofocus>Fechar</button></form>
+    </dialog>
+  </main>
+  <footer class="border-t border-slate-200 bg-slate-50 py-6"><p class="mx-auto max-w-6xl px-4 text-slate-600">Cursos Online · Atividade acadêmica · Tailwind CSS</p></footer>
+</body>
+</html>
