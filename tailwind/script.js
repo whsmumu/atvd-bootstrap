@@ -12,15 +12,25 @@ const slides = document.querySelectorAll('[data-slide]');
 const indicadores = document.querySelectorAll('[data-indicador]');
 let slideAtual = 0;
 
-function mostrarSlide(indice) {
+function mostrarSlide(indice, animar = true) {
   slideAtual = (indice + slides.length) % slides.length;
+
   slides.forEach((slide, posicao) => {
     const ativo = posicao === slideAtual;
-    slide.classList.toggle('opacity-100', ativo);
-    slide.classList.toggle('opacity-0', !ativo);
-    slide.setAttribute('aria-hidden', String(!ativo));
+    slide.getAnimations().forEach((animacao) => animacao.cancel());
+    slide.classList.remove('opacity-0', 'opacity-100');
+    slide.hidden = !ativo;
     slide.inert = !ativo;
+    slide.setAttribute('aria-hidden', String(!ativo));
+
+    if (ativo && animar && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      slide.animate(
+        [{ opacity: 0, transform: 'translateX(12px)' }, { opacity: 1, transform: 'translateX(0)' }],
+        { duration: 350, easing: 'ease-out' }
+      );
+    }
   });
+
   indicadores.forEach((indicador, posicao) => {
     const ativo = posicao === slideAtual;
     if (ativo) {
@@ -33,6 +43,7 @@ function mostrarSlide(indice) {
   });
 }
 
+mostrarSlide(0, false);
 document.querySelector('#anterior').addEventListener('click', () => mostrarSlide(slideAtual - 1));
 document.querySelector('#proximo').addEventListener('click', () => mostrarSlide(slideAtual + 1));
 indicadores.forEach((indicador, indice) => indicador.addEventListener('click', () => mostrarSlide(indice)));
